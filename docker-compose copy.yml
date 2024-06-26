@@ -13,7 +13,7 @@ services:
             - db-password
         environment:
             - ACCEPT_EULA=Y
-            - MSSQL_SA_PASSWORD_FILE=/run/secrets/db-password
+            - MSSQL_SA_PASSWORD=${SA_PASSWORD}
         volumes:
             -  db-data:/var/opt/mssql
     webapiwithdocker:
@@ -30,4 +30,4 @@ volumes:
     db-data:
 secrets:
     db-password:
-        file: ./secrets/dbrootpw.txt
+        file: secrets/dbrootpw.txt
